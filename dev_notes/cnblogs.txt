@@ -1,0 +1,62 @@
+官方文档：
+	https://docs.python.org/zh-cn/3/library/xmlrpc.client.html
+
+类：
+	class xmlrpc.client.ServerProxy(uri, transport=None, encoding=None, verbose=False, allow_none=False, use_datetime=False, use_builtin_types=False, *, headers=(), context=None)
+
+cnblogs的metaWebBlog
+	MetaWeblog访问地址： 参考cnblogs的个人设置
+
+	metaWeblog.getCategories
+		# 传递的参数简单，测试用的
+
+生成令牌：
+	https://account.cnblogs.com/settings/account/personal-access-token
+
+
+文件上传API： metaWeblog.newMediaObject
+	Parameters
+		string	blogid
+		string	username
+		string	password
+		struct FileData	file
+	Return Value
+		struct UrlData	 
+
+	---------------------------
+
+	Struct FileData	
+		base64	bits
+		string	name
+		string	type
+
+	Struct UrlData
+		string	url
+
+	这里的base64并非一种加密算法。其实是文件的二进制数据而已。
+
+	详细参考 官方文档(最上面)
+
+测试与分析：
+	1. 使用cnblogs的MetaWeblog，可以上传的文件很大
+		个人测试: 5.89M的文件上传成功
+		至于有没有文件大小限制，我不清楚，可自行测试
+
+	2. 同一个文件，分两次上传，返回的url地址不同
+		每次上传前，cnblogs应该没有对要上传的文件进行判断
+		（判断其是否存在于服务器中）
+
+		根据我的文件上传经验，文件名是根据一定的规则生成的。
+		保证文件能正常访问，而不考虑它所占据的空间。
+
+		但如果这样，服务器空间会被占用完很多。
+			文件保存在每一个用户默认的空间中，用户注销账号，
+			意味着数据的消失，将无法再次访问到它。
+			（至于是否会这样，这只是一个猜想，并没有证据证明）
+
+		同一张图片，返回不同的url:
+			https://img2022.cnblogs.com/blog/1389583/202208/1389583-20220823185842833-851762165.png
+
+			https://img2022.cnblogs.com/blog/1389583/202208/1389583-20220823185914255-250554974.png
+
+			可以比较两者的相同点和不同点，从而发现一些规律。

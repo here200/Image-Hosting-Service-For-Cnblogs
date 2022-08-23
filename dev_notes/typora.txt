@@ -1,0 +1,17 @@
+使用以下命令测试图片上传选项：
+D:\dev\Image-Hosting-Service-For-Cnblogs\main.exe "C:\\WINDOWS\\TEMP/typora-icon2.png" "C:\\WINDOWS\\TEMP/typora-icon.png"
+
+=======================分割线================================
+
+程序运行结果：
+https://img2022.cnblogs.com/blog/1389583/202208/1389583-20220823194021301-2069578273.png
+https://img2022.cnblogs.com/blog/1389583/202208/1389583-20220823194021891-1890586980.png
+
+=======================分割线================================
+
+python: 
+	通过命令行传递参数：
+		通过 sys.argv 接收
+		
+		命令行： python .\test.py hello.jpg css.jpg
+		返回数据： ['.\\test.py', 'hello.jpg', 'css.jpg']
