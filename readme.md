@@ -38,8 +38,8 @@
   在 **typora**中，选择 **文件 --> 偏好设置 --> 图像 --> 自定义命令 --> 输入 main.exe的绝对路径**
 
   `D:\dev\Image-Hosting-Service-For-Cnblogs\main.exe`
-
-![image-20220823233050682](images/image-20220823233050682.png)
+  
+  ![image-20220823233050682](images/image-20220823233050682.png)
 
 不管哪一种方法，都需要确保 （main.py 或者 main.exe） 与 config.json 在同一目录下。
 
