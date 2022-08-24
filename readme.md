@@ -45,6 +45,8 @@
 
 如果你的计算机没有python环境，请使用 方法2。
 
-### 4. Reference
+### 4. Source Of Inspiration
 
 [xiajingren/EasyBlogImageForTypora](https://github.com/xiajingren/EasyBlogImageForTypora)
+
+- 让我了解到博客园的MetaWebBlog。借助MetaWebBlog API，实现了相同的功能。
