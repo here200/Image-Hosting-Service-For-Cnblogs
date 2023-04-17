@@ -39,7 +39,7 @@ def start(file_names, config):
         file = {
             'bits': picture_data,
             'name': fn,
-            'type': fn.split('.')[1]
+            'type': fn.split('.').pop()
         }
         params['file'] = file
 
